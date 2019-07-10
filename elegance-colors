@@ -171,7 +171,7 @@ if [[ "$mode" = "gtk" && -f "$gtkpath" ]]; then
 elif [[ "$mode" = "wallpaper" && -f "$wallpaper" ]]; then
     show_info "Getting color from wallpaper '$wallpaper'"
     # Scale background image to 3x3 and take the color from top-left
-    highlight=`convert "$wallpaper" -resize 3x3 -filter cubic -fuzz 15% -brightness-contrast 15% -colorspace RGB -format '%[pixel:s]' info:-`
+    highlight=`cd /tmp/; convert "$wallpaper" -resize 3x3 -filter cubic -fuzz 15% -brightness-contrast 15% -colorspace RGB -format '%[pixel:s]' info:-`
 else
     show_info "Using custom highlight color"
     highlight="$1"
